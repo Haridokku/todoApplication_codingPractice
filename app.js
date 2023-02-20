@@ -37,7 +37,7 @@ const hasStatusProperty = (requestQuery) => {
   return requestQuery.status !== undefined;
 };
 
-app.get("/todos/", async (request, respond) => {
+app.get("/todos/", async (request, response) => {
   let data = null;
   let getTodosQuery = "";
   const { search_q = "", priority, status } = request.query;
@@ -88,7 +88,7 @@ app.get("/todos/", async (request, respond) => {
   response.send(data);
 });
 
-app.get("todos/:todoId/", async (request, response) => {
+app.get("/todos/:todoId/", async (request, response) => {
   const { todoId } = request.params;
   const getTodo = `
     SELECT *
